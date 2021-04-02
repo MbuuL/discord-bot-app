@@ -16,6 +16,7 @@ const cryptoHelp = () => {
 Ex. *!check BTCBIDR 1m*
 Available interval can be seen here:`)
     .setImage('https://i.ibb.co/1snxHD1/Screenshot-3.png')
+    .setFooter('Data provided by https://api.binance.cc')
   return responseEmbed
 };
 
