@@ -11,12 +11,12 @@ function login() {
 
 export function listener() {
   const bot = login()
-  bot.on('message', (msg) => {
+  bot.on('message', async (msg) => {
     if (msg.channel.type !== 'text') return
     const prefix = process.env.DISCORD_BOT_PREFIX ?? '>'
     if (!msg.content.startsWith(prefix)) return
     const [cmd, ...args] = msg.content.substring(prefix.length).toLowerCase().trim().split(' ')
-    const response = commands(cmd, args)
+    const response = await commands(cmd, args)
     msg.channel.send(response)
   })
 }

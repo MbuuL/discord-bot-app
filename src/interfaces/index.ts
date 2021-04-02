@@ -23,3 +23,12 @@ export interface gitlabResponse {
   commits: Array<any>,
   [key: string]: any,
 }
+
+export interface ohlcData {
+  o: number,
+  h: number,
+  l: number,
+  c: number,
+  v: number,
+  date: string
+}
