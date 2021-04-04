@@ -15,6 +15,14 @@ export function gitlabWebhook(req: Request, res: Response) {
     }
     return res.status(400).send(data)
   }
+  if (!body.project.web_url.startsWith(process.env.GITLAB_URL)) {
+    let data: Error = {
+      status: 403,
+      message: 'Forbidden',
+      error: `Only ${process.env.GITLAB_URL} project can access this`
+    }
+    return res.status(403).send(data)
+  }
   sendEmbed(body)
   let data: Success = {
     status: 200,
